@@ -60,9 +60,9 @@
     });
 
     // ---- Countdown Timer ----
-    // Target: 90 days from now
+    // Target: 24 hours from now
     const launchDate = new Date();
-    launchDate.setDate(launchDate.getDate() + 90);
+    launchDate.setHours(launchDate.getHours() + 24);
 
     const daysEl = document.getElementById('days');
     const hoursEl = document.getElementById('hours');
