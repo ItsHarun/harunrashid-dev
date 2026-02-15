@@ -1,0 +1,265 @@
+You’re not building a “portfolio website.”
+You’re building **digital mythology** around the founder of Kue.
+
+This isn’t about listing projects.
+This is about positioning.
+
+Let’s design it intentionally.
+
+---
+
+# 1️⃣ First: Decide Your Archetype
+
+Before structure, define the character.
+
+Not “Senior Software Engineer at Nova.”
+That’s LinkedIn.
+
+Ask yourself:
+
+* Are you the **systems thinker**?
+* The **quiet builder**?
+* The **AI realist**?
+* The **anti-hype founder**?
+* The **engineering philosopher**?
+
+Kue is product-first and AI-forward. So your presence should feel:
+
+> Minimal. Intentional. Thought-driven. Not loud.
+
+You want depth, not noise.
+
+---
+
+# 2️⃣ Structure: Not a Portfolio — A Manifesto Hub
+
+Here’s a powerful structure.
+
+---
+
+## 🧠 1. Landing Page = Philosophy
+
+No “Hi, I’m Harun.”
+
+Instead:
+
+Big statement.
+
+> “I build systems that outlive trends.”
+> “Software should think before it speaks.”
+> “AI is not magic. It’s architecture.”
+
+Minimal text.
+Dark theme.
+Elegant typography.
+
+Then a small line:
+
+> Harun Rashid
+> Builder of Kue.
+
+No fluff.
+
+---
+
+## 🔥 2. “Thinking” Section (Not Blog)
+
+Don’t call it Blog.
+
+Call it:
+
+* “Principles”
+
+This is where you publish:
+
+* Deep engineering essays
+* AI takes (no hype)
+* Product philosophy
+* Mistakes you made
+* Lessons from building Kue
+
+This builds authority.
+
+People don’t follow resumes.
+They follow thinking.
+
+---
+
+## 🏗 3. “Kue” as a Living Case Study
+
+Instead of listing projects:
+
+Create one evolving page:
+
+### “Building Kue”
+
+Inside:
+
+* Why Kue exists
+* Architectural decisions
+* Rejected ideas
+* System design evolution
+* Screenshots of iterations
+* Tradeoffs you made
+
+Make it transparent. Raw. Real.
+
+This positions you as a serious builder.
+
+---
+
+## 🧩 4. “Beliefs”
+
+This is powerful.
+
+Create a page called:
+
+> Beliefs
+
+Short statements like:
+
+* Most startups fail because they copy.
+* AI products fail because they lack systems thinking.
+* Simplicity is seniority.
+* Engineers should understand business.
+
+No explanations.
+Just strong positions.
+
+Controversial? Slightly.
+Memorable? Absolutely.
+
+---
+
+## 🧬 5. “Now” Page
+
+This is elite-tier positioning.
+
+A single page titled:
+
+> Now
+
+And it updates regularly.
+
+Example:
+
+* Building Kue v2 architecture.
+* Studying multi-agent AI systems.
+* Thinking about notification intelligence at scale.
+* Reading X.
+* Exploring Y.
+
+It makes you feel alive, not archived.
+
+---
+
+# 3️⃣ Design Philosophy
+
+Your site should feel:
+
+* Minimal
+* Almost empty
+* High whitespace
+* No animations circus
+* No skill bars
+* No “HTML 90%”
+
+Think:
+
+* Monospace touches
+* Black + off-white
+* Sharp typography
+* Quiet confidence
+
+People should feel:
+
+> This guy doesn’t chase trends. He builds systems.
+
+---
+
+
+You are not trying to get freelance gigs.
+
+You are building founder gravity.
+
+---
+
+# 5️⃣ Advanced Move (Optional but Powerful)
+
+Add a hidden layer.
+
+Example:
+
+Press `K` → opens a command palette
+Type “manifesto” → navigates
+Type “principles” → loads beliefs
+
+Make it feel like an operating system.
+
+This subconsciously says:
+
+> Engineer first. Designer second.
+
+Let user know that at the right place
+
+---
+
+# 6️⃣ Long-Term Strategy
+
+Right now:
+
+* Few visitors.
+
+When Kue grows:
+
+* Investors will read it.
+* Engineers will read it.
+* Product people will read it.
+* Curious users will Google you.
+
+Your site must answer:
+
+> “Why should I trust this guy to build something meaningful?”
+
+Not:
+
+> “What did he do in 2022?”
+
+---
+
+# 7️⃣ The Core Identity You Should Lean Into
+
+You’re:
+
+* Senior engineer
+* AI-focused
+* Building a real product
+* Thinking long-term
+
+So lean into:
+
+> Calm intelligence.
+> Systems thinking.
+> Product clarity.
+> Anti-hype AI.
+
+That’s rare. That stands out.
+
+---
+
+# 8️⃣ If You Want It Even Sharper
+
+You can structure it like:
+
+```
+/ (Philosophy)
+/kue (Product vision)
+/notes (Thinking)
+/beliefs (Convictions)
+/now (Current focus)
+/contact (Minimal)
+```
+
+Nothing else.
+
+No clutter.
