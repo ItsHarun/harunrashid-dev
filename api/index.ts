@@ -72,7 +72,15 @@ async function getPosts(type?: string): Promise<Post[]> {
         throw new Error(`Failed to fetch posts: ${error.message}`);
     }
 
-    return (data || []) as Post[];
+    // Transform snake_case to camelCase
+    return (data || []).map((post: any) => ({
+        id: post.id,
+        slug: post.slug,
+        title: post.title,
+        content: post.content,
+        type: post.type,
+        publishedAt: post.published_at
+    }));
 }
 
 async function getPostBySlug(slug: string): Promise<Post | null> {
@@ -90,7 +98,15 @@ async function getPostBySlug(slug: string): Promise<Post | null> {
         throw new Error(`Failed to fetch post: ${error.message}`);
     }
 
-    return data as Post;
+    // Transform snake_case to camelCase
+    return {
+        id: data.id,
+        slug: data.slug,
+        title: data.title,
+        content: data.content,
+        type: data.type,
+        publishedAt: data.published_at
+    };
 }
 
 async function getBeliefs(): Promise<Belief[]> {
@@ -118,7 +134,12 @@ async function getNowUpdates(): Promise<NowUpdate[]> {
         throw new Error(`Failed to fetch now updates: ${error.message}`);
     }
 
-    return (data || []) as NowUpdate[];
+    // Transform snake_case to camelCase
+    return (data || []).map((update: any) => ({
+        id: update.id,
+        content: update.content,
+        createdAt: update.created_at
+    }));
 }
 
 async function createMessage(input: { name: string; email: string; message: string }): Promise<Message> {
@@ -133,7 +154,14 @@ async function createMessage(input: { name: string; email: string; message: stri
         throw new Error(`Failed to create message: ${error.message}`);
     }
 
-    return data as Message;
+    // Transform snake_case to camelCase
+    return {
+        id: data.id,
+        name: data.name,
+        email: data.email,
+        message: data.message,
+        createdAt: data.created_at
+    };
 }
 
 // ==================== EXPRESS APP ====================
