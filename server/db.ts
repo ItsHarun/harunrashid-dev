@@ -12,8 +12,7 @@ if (!process.env.DATABASE_URL) {
 
 export const pool = new Pool({
   connectionString: process.env.DATABASE_URL,
-  // Force IPv4 to avoid ETIMEDOUT on IPv6 networks
-  // @ts-ignore - pg types might not include this valid node option
-  family: 4,
+  max: 1, // Limit connections for serverless
+  ssl: process.env.NODE_ENV === "production" ? { rejectUnauthorized: false } : undefined,
 });
 export const db = drizzle(pool, { schema });
