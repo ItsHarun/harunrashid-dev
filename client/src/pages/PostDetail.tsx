@@ -66,12 +66,17 @@ export default function PostDetail({ type }: PostDetailProps) {
 
           <div className="flex items-center gap-4 text-xs font-mono text-muted-foreground border-t border-border pt-6">
             <time>
-              {post.publishedAt
-                ? new Date(post.publishedAt).toLocaleDateString('en-US', {
-                  year: 'numeric',
-                  month: 'long',
-                  day: 'numeric'
-                })
+              {post.publishedAt ? (() => {
+                const date = new Date(post.publishedAt);
+                const currentYear = new Date().getFullYear();
+                const postYear = date.getFullYear();
+                const day = date.getDate().toString().padStart(2, '0');
+                const month = date.toLocaleDateString('en-US', { month: 'short' }).toUpperCase();
+
+                return postYear === currentYear
+                  ? `${day}-${month}`
+                  : `${day}-${month}-${postYear}`;
+              })()
                 : 'DRAFT'}
             </time>
             <span>/</span>
