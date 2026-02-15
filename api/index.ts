@@ -1,6 +1,11 @@
 import { setupApp } from "../server/index";
 
+// Cache the app instance across serverless invocations
+let app: any = null;
+
 export default async function handler(req: any, res: any) {
-    const app = await setupApp();
-    app(req, res);
+    if (!app) {
+        app = await setupApp();
+    }
+    return app(req, res);
 }

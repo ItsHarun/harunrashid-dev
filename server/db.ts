@@ -13,6 +13,10 @@ if (!process.env.DATABASE_URL) {
 export const pool = new Pool({
   connectionString: process.env.DATABASE_URL,
   max: 1, // Limit connections for serverless
-  ssl: process.env.NODE_ENV === "production" ? { rejectUnauthorized: false } : undefined,
+  ssl: {
+    rejectUnauthorized: false // Required for Supabase
+  },
+  connectionTimeoutMillis: 10000, // 10 second connection timeout
+  idleTimeoutMillis: 30000, // 30 second idle timeout
 });
 export const db = drizzle(pool, { schema });
