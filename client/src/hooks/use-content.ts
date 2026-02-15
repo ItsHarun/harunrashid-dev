@@ -1,6 +1,5 @@
-import { useQuery, useMutation } from "@tanstack/react-query";
-import { postsService, beliefsService, nowService, messagesService } from "@shared/services";
-import type { InsertMessage } from "@shared/schema";
+import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
+import { api, buildUrl, type InsertMessage } from "@shared/routes";
 
 // ============================================
 // POSTS (Thinking & Kue)
@@ -8,18 +7,28 @@ import type { InsertMessage } from "@shared/schema";
 
 export function usePosts(type?: 'thinking' | 'kue') {
   return useQuery({
-    queryKey: ['posts', type],
+    queryKey: [api.posts.list.path, type],
     queryFn: async () => {
-      return await postsService.getAll(type);
+      const url = type
+        ? buildUrl(api.posts.list.path) + `?type=${type}`
+        : api.posts.list.path;
+
+      const res = await fetch(url);
+      if (!res.ok) throw new Error("Failed to fetch posts");
+      return api.posts.list.responses[200].parse(await res.json());
     },
   });
 }
 
 export function usePost(slug: string) {
   return useQuery({
-    queryKey: ['post', slug],
+    queryKey: [api.posts.get.path, slug],
     queryFn: async () => {
-      return await postsService.getBySlug(slug);
+      const url = buildUrl(api.posts.get.path, { slug });
+      const res = await fetch(url);
+      if (res.status === 404) return null;
+      if (!res.ok) throw new Error("Failed to fetch post");
+      return api.posts.get.responses[200].parse(await res.json());
     },
   });
 }
@@ -30,9 +39,11 @@ export function usePost(slug: string) {
 
 export function useBeliefs() {
   return useQuery({
-    queryKey: ['beliefs'],
+    queryKey: [api.beliefs.list.path],
     queryFn: async () => {
-      return await beliefsService.getAll();
+      const res = await fetch(api.beliefs.list.path);
+      if (!res.ok) throw new Error("Failed to fetch beliefs");
+      return api.beliefs.list.responses[200].parse(await res.json());
     },
   });
 }
@@ -43,9 +54,11 @@ export function useBeliefs() {
 
 export function useNowUpdates() {
   return useQuery({
-    queryKey: ['now-updates'],
+    queryKey: [api.now.list.path],
     queryFn: async () => {
-      return await nowService.getUpdates();
+      const res = await fetch(api.now.list.path);
+      if (!res.ok) throw new Error("Failed to fetch now updates");
+      return api.now.list.responses[200].parse(await res.json());
     },
   });
 }
@@ -57,8 +70,21 @@ export function useNowUpdates() {
 export function useSendMessage() {
   return useMutation({
     mutationFn: async (data: InsertMessage) => {
-      return await messagesService.create(data);
+      const validated = api.contact.create.input.parse(data);
+      const res = await fetch(api.contact.create.path, {
+        method: api.contact.create.method,
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(validated),
+      });
+
+      if (!res.ok) {
+        if (res.status === 400) {
+          const error = api.contact.create.responses[400].parse(await res.json());
+          throw new Error(error.message);
+        }
+        throw new Error("Failed to send message");
+      }
+      return api.contact.create.responses[201].parse(await res.json());
     },
   });
 }
-

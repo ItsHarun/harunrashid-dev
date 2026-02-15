@@ -1,4 +1,4 @@
-import { supabase } from "../../client/src/lib/supabase";
+import { supabase } from "../supabase";
 import { type Belief, type InsertBelief } from "@shared/schema";
 
 export class BeliefsService {

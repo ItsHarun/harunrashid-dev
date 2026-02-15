@@ -1,4 +1,4 @@
-import { supabase } from "../../client/src/lib/supabase";
+import { supabase } from "../supabase";
 import { type Post, type InsertPost } from "@shared/schema";
 
 export class PostsService {

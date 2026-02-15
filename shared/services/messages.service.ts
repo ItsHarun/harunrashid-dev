@@ -1,4 +1,4 @@
-import { supabase } from "../../client/src/lib/supabase";
+import { supabase } from "../supabase";
 import { type Message, type InsertMessage } from "@shared/schema";
 
 export class MessagesService {
