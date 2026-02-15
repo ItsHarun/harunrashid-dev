@@ -20,24 +20,30 @@ export function PostList({ posts, basePath }: PostListProps) {
   return (
     <ul className="space-y-0">
       {posts.map((post, i) => (
-        <li 
-          key={post.id} 
+        <li
+          key={post.id}
           className={cn(
             "group animate-in-up border-b border-border/40 last:border-0",
           )}
           style={{ animationDelay: `${i * 50}ms` }}
         >
-          <Link 
+          <Link
             href={`${basePath}/${post.slug}`}
             className="block py-6 md:py-8 flex items-baseline justify-between hover:bg-muted/30 transition-colors -mx-4 px-4 rounded-sm"
           >
             <div className="flex flex-col md:flex-row md:items-baseline gap-2 md:gap-8">
               <span className="font-mono text-xs text-muted-foreground w-24 shrink-0">
-                {post.publishedAt ? new Date(post.publishedAt).toLocaleDateString('en-US', {
-                  year: 'numeric',
-                  month: '2-digit',
-                  day: '2-digit'
-                }) : 'DRAFT'}
+                {post.publishedAt ? (() => {
+                  const date = new Date(post.publishedAt);
+                  const currentYear = new Date().getFullYear();
+                  const postYear = date.getFullYear();
+                  const day = date.getDate().toString().padStart(2, '0');
+                  const month = date.toLocaleDateString('en-US', { month: 'short' }).toUpperCase();
+
+                  return postYear === currentYear
+                    ? `${day}-${month}`
+                    : `${day}-${month}-${postYear}`;
+                })() : 'DRAFT'}
               </span>
               <h3 className="text-lg md:text-xl font-medium tracking-tight group-hover:underline decoration-1 underline-offset-4">
                 {post.title}
