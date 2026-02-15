@@ -65,7 +65,7 @@ export default function Contact() {
             <h3 className="font-mono text-xs uppercase tracking-widest text-muted-foreground">Or find me at</h3>
             <ul className="space-y-2 font-mono text-sm">
               <li>
-                <a href="mailto:hello@harunrashid.dev" className="hover:text-foreground transition-colors duration-200 block">
+                <a href="mailto:hello@harunrashid.dev" target="_blank" rel="noopener noreferrer" className="hover:text-foreground transition-colors duration-200 block">
                   hello@harunrashid.dev
                 </a>
               </li>
