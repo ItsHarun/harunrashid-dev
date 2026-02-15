@@ -63,114 +63,115 @@ export default function Contact() {
 
           <div className="space-y-4 pt-8">
             <h3 className="font-mono text-xs uppercase tracking-widest text-muted-foreground">Or find me at</h3>
-            <li>
-              <a href="mailto:hello@harunrashid.dev" className="hover:text-foreground transition-colors duration-200 block">
-                hello@harunrashid.dev
-              </a>
-            </li>
-            <li>
-              <a href="https://x.com/harundev" target="_blank" rel="noopener noreferrer" className="hover:text-foreground transition-colors duration-200 block">
-                @harundev on X
-              </a>
-            </li>
-            <li>
-              <a href="https://www.linkedin.com/in/harun-rashid-offl/" target="_blank" rel="noopener noreferrer" className="hover:text-foreground transition-colors duration-200 block">
-                Harun Rashid on LinkedIn
-              </a>
-            </li>
-          </ul>
+            <ul className="space-y-2 font-mono text-sm">
+              <li>
+                <a href="mailto:hello@harunrashid.dev" className="hover:text-foreground transition-colors duration-200 block">
+                  hello@harunrashid.dev
+                </a>
+              </li>
+              <li>
+                <a href="https://x.com/harundev" target="_blank" rel="noopener noreferrer" className="hover:text-foreground transition-colors duration-200 block">
+                  @harundev on X
+                </a>
+              </li>
+              <li>
+                <a href="https://www.linkedin.com/in/harun-rashid-offl/" target="_blank" rel="noopener noreferrer" className="hover:text-foreground transition-colors duration-200 block">
+                  Harun Rashid on LinkedIn
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div className="delay-200">
+          {success ? (
+            <div className="h-full flex flex-col justify-center items-center text-center space-y-4 py-12 border border-border bg-secondary/20 p-8">
+              <div className="h-12 w-12 rounded-full bg-foreground flex items-center justify-center">
+                <Send className="h-5 w-5 text-background" />
+              </div>
+              <h3 className="text-xl font-medium">Message Received</h3>
+              <p className="text-muted-foreground">Thank you for reaching out.</p>
+              <button
+                onClick={() => setSuccess(false)}
+                className="text-sm font-mono underline underline-offset-4 hover:text-muted-foreground transition-colors mt-4 duration-400"
+              >
+                Send another
+              </button>
+            </div>
+          ) : (
+            <Form {...form}>
+              <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
+                <FormField
+                  control={form.control}
+                  name="name"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel className="font-mono text-xs uppercase tracking-widest text-muted-foreground">Name</FormLabel>
+                      <FormControl>
+                        <Input
+                          placeholder="Jane Doe"
+                          {...field}
+                          className="bg-transparent border-0 border-b border-border rounded-none px-0 py-4 h-auto focus-visible:ring-0 focus-visible:border-foreground transition-colors placeholder:text-muted-foreground/30 font-light text-lg duration-400"
+                        />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+
+                <FormField
+                  control={form.control}
+                  name="email"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel className="font-mono text-xs uppercase tracking-widest text-muted-foreground">Email</FormLabel>
+                      <FormControl>
+                        <Input
+                          placeholder="jane@example.com"
+                          {...field}
+                          className="bg-transparent border-0 border-b border-border rounded-none px-0 py-4 h-auto focus-visible:ring-0 focus-visible:border-foreground transition-colors placeholder:text-muted-foreground/30 font-light text-lg duration-400"
+                        />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+
+                <FormField
+                  control={form.control}
+                  name="message"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel className="font-mono text-xs uppercase tracking-widest text-muted-foreground">Message</FormLabel>
+                      <FormControl>
+                        <Textarea
+                          placeholder="What's on your mind?"
+                          {...field}
+                          className="bg-transparent border-0 border-b border-border rounded-none px-0 py-4 min-h-[120px] resize-none focus-visible:ring-0 focus-visible:border-foreground transition-colors placeholder:text-muted-foreground/30 font-light text-lg duration-400"
+                        />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+
+                <button
+                  type="submit"
+                  disabled={sendMessage.isPending}
+                  className="group flex items-center gap-4 text-sm font-mono uppercase tracking-widest hover:text-muted-foreground transition-colors disabled:opacity-50 disabled:cursor-not-allowed duration-400"
+                >
+                  {sendMessage.isPending ? (
+                    <Loader2 className="h-4 w-4 animate-spin" />
+                  ) : (
+                    <span className="h-2 w-2 bg-foreground group-hover:bg-muted-foreground transition-colors duration-400" />
+                  )}
+                  {sendMessage.isPending ? "Sending..." : "Submit Message"}
+                </button>
+              </form>
+            </Form>
+          )}
         </div>
       </div>
-
-      <div className="delay-200">
-        {success ? (
-          <div className="h-full flex flex-col justify-center items-center text-center space-y-4 py-12 border border-border bg-secondary/20 p-8">
-            <div className="h-12 w-12 rounded-full bg-foreground flex items-center justify-center">
-              <Send className="h-5 w-5 text-background" />
-            </div>
-            <h3 className="text-xl font-medium">Message Received</h3>
-            <p className="text-muted-foreground">Thank you for reaching out.</p>
-            <button
-              onClick={() => setSuccess(false)}
-              className="text-sm font-mono underline underline-offset-4 hover:text-muted-foreground transition-colors mt-4 duration-400"
-            >
-              Send another
-            </button>
-          </div>
-        ) : (
-          <Form {...form}>
-            <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
-              <FormField
-                control={form.control}
-                name="name"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel className="font-mono text-xs uppercase tracking-widest text-muted-foreground">Name</FormLabel>
-                    <FormControl>
-                      <Input
-                        placeholder="Jane Doe"
-                        {...field}
-                        className="bg-transparent border-0 border-b border-border rounded-none px-0 py-4 h-auto focus-visible:ring-0 focus-visible:border-foreground transition-colors placeholder:text-muted-foreground/30 font-light text-lg duration-400"
-                      />
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
-
-              <FormField
-                control={form.control}
-                name="email"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel className="font-mono text-xs uppercase tracking-widest text-muted-foreground">Email</FormLabel>
-                    <FormControl>
-                      <Input
-                        placeholder="jane@example.com"
-                        {...field}
-                        className="bg-transparent border-0 border-b border-border rounded-none px-0 py-4 h-auto focus-visible:ring-0 focus-visible:border-foreground transition-colors placeholder:text-muted-foreground/30 font-light text-lg duration-400"
-                      />
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
-
-              <FormField
-                control={form.control}
-                name="message"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel className="font-mono text-xs uppercase tracking-widest text-muted-foreground">Message</FormLabel>
-                    <FormControl>
-                      <Textarea
-                        placeholder="What's on your mind?"
-                        {...field}
-                        className="bg-transparent border-0 border-b border-border rounded-none px-0 py-4 min-h-[120px] resize-none focus-visible:ring-0 focus-visible:border-foreground transition-colors placeholder:text-muted-foreground/30 font-light text-lg duration-400"
-                      />
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
-
-              <button
-                type="submit"
-                disabled={sendMessage.isPending}
-                className="group flex items-center gap-4 text-sm font-mono uppercase tracking-widest hover:text-muted-foreground transition-colors disabled:opacity-50 disabled:cursor-not-allowed duration-400"
-              >
-                {sendMessage.isPending ? (
-                  <Loader2 className="h-4 w-4 animate-spin" />
-                ) : (
-                  <span className="h-2 w-2 bg-foreground group-hover:bg-muted-foreground transition-colors duration-400" />
-                )}
-                {sendMessage.isPending ? "Sending..." : "Submit Message"}
-              </button>
-            </form>
-          </Form>
-        )}
-      </div>
-    </div>
     </Layout >
   );
 }
