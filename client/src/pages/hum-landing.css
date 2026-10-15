@@ -1,0 +1,118 @@
+/* Hum: Couples landing page. Brand tokens mirror the app (AmbientBackground, AccentColor, AccentText,
+   OnAccent, TextSecondary); spacing and radii follow the app's 4-pt DS scale. Scoped to .hum. */
+@font-face {
+  font-family: "Hum Display";
+  src: url("/hum/Fraunces72ptSuperSoft-SemiBoldItalic.ttf") format("truetype");
+  font-display: swap;
+}
+
+.hum {
+  --bg-0: #FFF7F4; --bg-1: #FCE6EC; --bg-2: #F4E9F5;
+  --surface: #FFFFFF; --hairline: #EBDCE2;
+  --text: #1D1D1F; --text-secondary: #6E6E73;
+  --accent: #C2255C; --accent-text: #B0204F; --on-accent: #FFFFFF;
+  --bezel: #1D1D1F;
+  --space-1: 4px; --space-2: 8px; --space-3: 12px; --space-4: 16px; --space-6: 24px;
+  --space-8: 32px; --space-12: 48px; --space-16: 64px; --space-24: 96px;
+  --radius-md: 12px; --radius-lg: 16px; --radius-xl: 24px; --radius-pill: 999px;
+  --hit-min: 44px;
+
+  min-height: 100vh;
+  color: var(--text);
+  background:
+    radial-gradient(60rem 40rem at 85% -10%, var(--bg-1), transparent 70%),
+    radial-gradient(50rem 40rem at -10% 40%, var(--bg-2), transparent 70%),
+    var(--bg-0);
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  line-height: 1.5;
+}
+.dark .hum {
+  --bg-0: #0E0609; --bg-1: #2A0E1D; --bg-2: #1C0A13;
+  --surface: #1A0B14; --hairline: #2E1824;
+  --text: #FFFFFF; --text-secondary: #A1A1A6;
+  --accent: #FF7AA8; --accent-text: #FFA3C2; --on-accent: #2A0A17;
+  --bezel: #0A0608;
+}
+
+.hum-wrap { max-width: 1080px; margin: 0 auto; padding: 0 var(--space-4); }
+@media (min-width: 768px) { .hum-wrap { padding: 0 var(--space-8); } }
+
+.hum a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: var(--space-1); }
+
+/* Top bar */
+.hum-nav { display: flex; align-items: center; justify-content: space-between; min-height: 72px;
+  padding-top: env(safe-area-inset-top); }
+.hum-brand { display: inline-flex; align-items: center; gap: var(--space-3); color: inherit; text-decoration: none; min-height: var(--hit-min); }
+.hum-brand img { width: 36px; height: 36px; border-radius: 9px; }
+.hum-brand span { font-family: "Hum Display", serif; font-size: 26px; }
+.hum-nav-link { color: var(--text-secondary); text-decoration: none; font-size: 15px; font-weight: 500;
+  min-height: var(--hit-min); display: inline-flex; align-items: center; padding: 0 var(--space-2); }
+.hum-nav-link:hover { color: var(--text); }
+
+/* Type */
+.hum-display { font-family: "Hum Display", serif; font-weight: 600; letter-spacing: -0.01em; line-height: 1.02; }
+.hum-display { text-wrap: balance; }
+/* The site's base layer sets every heading in JetBrains Mono; Hum's card headings use the body face. */
+.hum h3 { font-family: inherit; letter-spacing: normal; }
+.hum-display em { font-style: italic; color: var(--accent-text); white-space: nowrap; }
+.hum-eyebrow { font-size: 13px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent-text); }
+.hum-lede { font-size: 19px; color: var(--text-secondary); max-width: 34rem; }
+
+/* Hero */
+.hum-hero { display: grid; gap: var(--space-12); align-items: center; padding: var(--space-12) 0 var(--space-16); }
+.hum-hero h1 { font-size: clamp(40px, 11vw, 92px); margin: var(--space-3) 0 var(--space-6); }
+/* Grid items default to min-width: auto; let columns shrink to the viewport instead of overflowing it. */
+.hum-hero > *, .hum-feature > * { min-width: 0; }
+@media (min-width: 900px) { .hum-hero { grid-template-columns: 1.1fr 0.9fr; padding: var(--space-16) 0 var(--space-24); } }
+
+.hum-cta-row { display: flex; flex-wrap: wrap; gap: var(--space-3); margin-top: var(--space-8); }
+.hum-cta { display: inline-flex; align-items: center; justify-content: center; gap: var(--space-2);
+  min-height: 52px; padding: 0 var(--space-6); border-radius: var(--radius-pill);
+  font-size: 17px; font-weight: 600; text-decoration: none; }
+.hum-cta--primary { background: var(--accent); color: var(--on-accent); }
+.hum-cta--quiet { color: var(--text); border: 1px solid var(--hairline); background: var(--surface); }
+.hum-cta[aria-disabled="true"] { cursor: default; }
+
+/* Phone frame: real app screens in a simple bezel */
+.hum-phone { position: relative; margin: 0 auto; width: min(300px, 78vw); }
+.hum-phone > img { display: block; width: 100%; height: auto; border-radius: 40px;
+  border: 8px solid var(--bezel); box-shadow: 0 30px 60px rgb(0 0 0 / 0.28); background: var(--bezel); }
+.hum-float { position: absolute; left: 50%; transform: translateX(-50%); border-radius: var(--radius-pill);
+  overflow: hidden; box-shadow: 0 18px 40px rgb(0 0 0 / 0.35); }
+.hum-float img { display: block; width: 100%; height: auto; }
+.hum-float--banner { bottom: 14%; width: 112%; }
+.hum-float--activity { bottom: 10%; width: 118%; border-radius: var(--radius-xl); }
+
+/* Feature rows */
+.hum-section { padding: var(--space-16) 0; }
+.hum-feature { display: grid; gap: var(--space-8); align-items: center; padding: var(--space-12) 0; }
+.hum-feature h2 { font-size: clamp(32px, 8.5vw, 56px); margin: var(--space-2) 0 var(--space-4); }
+.hum-feature p { font-size: 18px; color: var(--text-secondary); max-width: 30rem; }
+@media (min-width: 900px) {
+  .hum-feature { grid-template-columns: 1fr 1fr; gap: var(--space-16); }
+  .hum-feature--flip .hum-feature-copy { order: 2; }
+}
+
+/* Privacy */
+.hum-privacy h2 { font-size: clamp(32px, 8.5vw, 56px); margin: var(--space-2) 0 var(--space-8); }
+.hum-cards { display: grid; gap: var(--space-4); list-style: none; padding: 0; margin: 0; }
+@media (min-width: 768px) { .hum-cards { grid-template-columns: repeat(3, 1fr); } }
+.hum-card { background: var(--surface); border: 1px solid var(--hairline); border-radius: var(--radius-xl); padding: var(--space-6); }
+.hum-card h3 { font-size: 19px; font-weight: 600; margin: 0 0 var(--space-2); }
+.hum-card p { font-size: 16px; color: var(--text-secondary); margin: 0; }
+.hum-text-link { color: var(--accent-text); text-underline-offset: 4px; }
+
+/* Closing band */
+.hum-closing { text-align: center; padding: var(--space-24) 0; }
+.hum-closing h2 { font-size: clamp(34px, 9vw, 68px); margin: 0 0 var(--space-4); }
+.hum-closing p { font-size: 18px; color: var(--text-secondary); margin: 0 auto; max-width: 32rem; }
+.hum-closing .hum-cta-row { justify-content: center; }
+
+/* Footer */
+.hum-footer { border-top: 1px solid var(--hairline); padding: var(--space-8) 0 calc(var(--space-8) + env(safe-area-inset-bottom));
+  display: flex; flex-wrap: wrap; gap: var(--space-4) var(--space-6); justify-content: space-between; align-items: center;
+  font-size: 14px; color: var(--text-secondary); }
+.hum-footer nav { display: flex; gap: var(--space-2); flex-wrap: wrap; }
+.hum-footer a { color: inherit; min-height: var(--hit-min); display: inline-flex; align-items: center; padding: 0 var(--space-2); }
+.hum-footer a:hover { color: var(--text); }
