@@ -15,6 +15,7 @@ import Now from "@/pages/Now";
 import Contact from "@/pages/Contact";
 import PostDetail from "@/pages/PostDetail";
 import HumPrivacyPolicy from "@/pages/HumPrivacyPolicy";
+import HumSupport from "@/pages/HumSupport";
 
 function Router() {
   return (
@@ -28,6 +29,7 @@ function Router() {
       <Route path="/now" component={Now} />
       <Route path="/contact" component={Contact} />
       <Route path="/hum-couple-privacy-policy" component={HumPrivacyPolicy} />
+      <Route path="/hum-couple-support" component={HumSupport} />
 
       {/* Detail pages */}
       <Route path="/thinking/:slug">

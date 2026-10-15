@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import { Link } from "wouter";
 import { Layout } from "@/components/Layout";
 
 const EFFECTIVE_DATE = "October 15, 2026";
@@ -216,6 +217,9 @@ export default function HumPrivacyPolicy() {
             Harun Rashid
             <br />
             <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>
+          </p>
+          <p>
+            For help using Hum, see <Link href="/hum-couple-support">Hum support</Link>.
           </p>
         </article>
       </div>
