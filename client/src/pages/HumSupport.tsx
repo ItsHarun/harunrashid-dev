@@ -126,6 +126,13 @@ export default function HumSupport() {
             <Link href="/hum-couple-privacy-policy">privacy policy</Link>.
           </p>
 
+          <h3>How do I report a concern?</h3>
+          <p>
+            On Home, tap your profile (top right) and choose <em>Report a concern</em>, or email{" "}
+            <a href={`mailto:${CONTACT_EMAIL}?subject=Hum%3A%20report%20a%20concern`}>{CONTACT_EMAIL}</a>. To stop all
+            contact with someone right away, unpair (below).
+          </p>
+
           <h3>How do I unpair or delete my data?</h3>
           <p>
             On Home, tap your profile (top right) and choose <em>Unpair and erase everything</em>. This disconnects you
