@@ -2,8 +2,7 @@ import { useEffect, type ReactNode } from "react";
 import { Link } from "wouter";
 import "./hum-landing.css";
 
-// Set once the app is live, e.g. "https://apps.apple.com/app/id0000000000". Until then the CTA reads "Coming soon".
-const APP_STORE_URL: string | null = null;
+const APP_STORE_URL = "https://apps.apple.com/app/hum-couples/id6823044664";
 
 const META_DESCRIPTION =
   "Hum: Couples is a private space for the two of you. Send a touch they feel instantly, draw together live, share sealed moments and know when they're on the way.";
@@ -22,14 +21,10 @@ function setMetaDescription(content: string): () => void {
 }
 
 function AppStoreCta() {
-  return APP_STORE_URL ? (
+  return (
     <a className="hum-cta hum-cta--primary" href={APP_STORE_URL} target="_blank" rel="noopener noreferrer">
       Download on the App Store
     </a>
-  ) : (
-    <span className="hum-cta hum-cta--primary" aria-disabled="true">
-      Coming soon to the App Store
-    </span>
   );
 }
 

@@ -72,7 +72,6 @@
   font-size: 17px; font-weight: 600; text-decoration: none; }
 .hum-cta--primary { background: var(--accent); color: var(--on-accent); }
 .hum-cta--quiet { color: var(--text); border: 1px solid var(--hairline); background: var(--surface); }
-.hum-cta[aria-disabled="true"] { cursor: default; }
 
 /* Phone frame: real app screens in a simple bezel */
 .hum-phone { position: relative; margin: 0 auto; width: min(300px, 78vw); }
